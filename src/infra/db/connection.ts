@@ -12,6 +12,9 @@ export const AppDataSource = new DataSource({
 	migrations: ["src/infra/db/migrations/*.ts"],
 });
 
-export const initializeDatabase = async () => {
-	await AppDataSource.initialize();
-};
+export async function initializeDatabase() {
+	if (!AppDataSource.isInitialized) {
+		await AppDataSource.initialize();
+		console.log("DataSource initialized");
+	}
+}
