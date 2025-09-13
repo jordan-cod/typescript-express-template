@@ -1,8 +1,8 @@
 {
 	"compilerOptions": {
-		"rootDir": "./src",
-		"outDir": "./dist",
 		"baseUrl": "src",
+		"rootDir": "src",
+		"outDir": "./dist",
 		"paths": {
 			"@/*": ["*"]
 		},
@@ -21,7 +21,7 @@
 		"verbatimModuleSyntax": false,
 		"isolatedModules": true,
 		"noUncheckedSideEffectImports": true,
-		"moduleDetection": "force",
 		"skipLibCheck": true
-	}
+	},
+	"include": ["src"]
 }
