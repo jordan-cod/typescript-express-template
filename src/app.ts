@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import { env } from "@/core/config/env";
 import { createServer } from "@/infra/http/server";
 

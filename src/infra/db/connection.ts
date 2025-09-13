@@ -1,6 +1,7 @@
 import { DataSource } from "typeorm";
 import { env } from "@/core/config/env";
 
+import { logger } from "@/core/logger/logger";
 import { User } from "@/domains/users/user.entity";
 
 export const AppDataSource = new DataSource({
@@ -15,6 +16,6 @@ export const AppDataSource = new DataSource({
 export async function initializeDatabase() {
 	if (!AppDataSource.isInitialized) {
 		await AppDataSource.initialize();
-		console.log("DataSource initialized");
+		logger.info("DataSource initialized");
 	}
 }
