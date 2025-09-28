@@ -1,10 +1,10 @@
-import { corsMiddleware } from "@/core/config/cors";
-import { errorHandler } from "@/core/middleware/error-handler";
 import express, { type Express } from "express";
 import helmet from "helmet";
-import { httpLogger } from "@/core/logger/http-logger";
-import { initializeDatabase } from "../db/connection";
+import { corsMiddleware } from "@/core/config/cors";
 import { rateLimiter } from "@/core/config/rate-limit";
+import { httpLogger } from "@/core/logger/http-logger";
+import { errorHandler } from "@/core/middleware/error-handler";
+import { initializeDatabase } from "../db/connection";
 import { registerRoutes } from "./routes";
 
 export async function createServer(): Promise<Express> {
@@ -19,6 +19,13 @@ export async function createServer(): Promise<Express> {
 	app.use(httpLogger);
 
 	registerRoutes(app);
+
+	app.use((_, res) => {
+		res.status(404).json({
+			success: false,
+			message: "Not found",
+		});
+	});
 
 	app.use(errorHandler);
 
