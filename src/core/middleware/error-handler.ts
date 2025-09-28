@@ -1,6 +1,6 @@
 import type { NextFunction, Request, Response } from "express";
-import { logger } from "@/core/logger/logger";
 import { getReasonPhrase, StatusCodes } from "http-status-codes";
+import { logger } from "@/core/logger/logger";
 
 export class AppError extends Error {
 	statusCode: number;

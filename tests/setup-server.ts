@@ -1,6 +1,6 @@
+import type { Express } from "express";
 import { beforeAll } from "vitest";
 import { createServer } from "../src/infra/http/server";
-import type { Express } from "express";
 
 export let server: Express;
 

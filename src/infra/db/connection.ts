@@ -2,14 +2,13 @@ import { DataSource } from "typeorm";
 import { env } from "@/core/config/env";
 
 import { logger } from "@/core/logger/logger";
-import { User } from "@/domains/users/user.entity";
 
 export const AppDataSource = new DataSource({
 	type: "postgres",
 	url: env.DATABASE_URL,
 	useUTC: true,
 	logging: true,
-	entities: [User],
+	entities: [],
 	migrations: ["src/infra/db/migrations/*.ts"],
 });
 
